@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IMPORTANT SYSTEM SCAN</title>
+<style>
+body {
+background-color: black;
+color: lime;
+font-family: monospace;
+text-align: center;
+}
+#hiddenContent {
+display: none;
+}
+img {
+width: 250px;
+margin: 10px;
+border: 3px solid white;
+}
+button {
+padding: 15px 25px;
+font-size: 16px;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>⚠️ SYSTEM SECURITY ALERT ⚠️</h1>
+<p>Suspicious activity detected...</p>
+<p>Scanning device...</p>
+
+<button onclick="startPrank()">Fix Issue</button>
+
+<div id="hiddenContent">
+<h2>🚨 THREAT IDENTIFIED 🚨</h2>
+<p>We found the problem...</p>
+<h1>It's YOU 😂</h1>
+
+<div>
+<img src="prank.jpg">
+<img src="prank 2.jpg">
+<img src="prank 3.jpg">
+</div>
+
+<h2>Diagnosis:</h2>
+<p>✔ Too handsome</p>
+<p>✔ Too annoying</p>
+<p>✔ Highly suspicious levels of cuteness</p>
+
+<h1>😂 GOTCHA 😂</h1>
+</div>
+
+<script>
+function startPrank() {
+// Save your hidden prank content
+var prankContent = document.getElementById("hiddenContent").innerHTML;
+
+// Show the scanning + timer screen
+document.body.innerHTML = `
+<h1>Scanning...</h1>
+<h2 id="timer">02:00</h2>
+`;
+
+var timeLeft = 120; // 2 minutes = 120 seconds
+
+var countdown = setInterval(function() {
+var minutes = Math.floor(timeLeft / 60);
+var seconds = timeLeft % 60;
+
+// Format time like 02:00
+document.getElementById("timer").innerText =
+String(minutes).padStart(2, '0') + ":" +
+String(seconds).padStart(2, '0');
+
+timeLeft--;
+
+// When timer ends
+if (timeLeft < 0) {
+clearInterval(countdown);
+
+// Show the prank content
+document.body.innerHTML = prankContent;
+document.body.style.backgroundColor = "black";
+document.body.style.color = "white";
+}
+}, 1000);
+}
+</script>
+
+</body>
+</html>
